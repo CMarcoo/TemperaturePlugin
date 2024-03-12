@@ -1,0 +1,6 @@
+name: TemperaturePlugin
+version: '${project.version}'
+main: top.cmarco.temperatureplugin.TemperaturePlugin
+api-version: '1.13'
+authors: [CMarco]
+description: Implement temperature into your server!
