@@ -1,6 +1,12 @@
-name: TemperaturePlugin
-version: '${project.version}'
-main: top.cmarco.temperatureplugin.TemperaturePlugin
-api-version: '1.13'
-authors: [CMarco]
-description: Implement temperature into your server!
+name: "TemperaturePlugin"
+version: "${project.version}"
+main: "top.cmarco.temperatureplugin.TemperaturePlugin"
+api-version: '1.17'
+folia-supported: false
+authors: ["CMarco"]
+description: "The Most Realistic Temperature Plugin Ever Created!"
+softdepend: ["PlaceholderAPI"]
+commands:
+  temperature:
+    description: 'Manage your temperature in-game.'
+

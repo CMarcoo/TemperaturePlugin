@@ -1,0 +1,18 @@
+# _____                                    _
+#/__   \___ _ __ ___  _ __   ___ _ __ __ _| |_ _   _ _ __ ___
+#  / /\/ _ \ '_ ` _ \| '_ \ / _ \ '__/ _` | __| | | | '__/ _ \
+# / / |  __/ | | | | | |_) |  __/ | | (_| | |_| |_| | | |  __/
+# \/   \___|_| |_| |_| .__/ \___|_|  \__,_|\__|\__,_|_|  \___|
+#                    |_|
+# © CMarco 2024
+#
+worlds:
+  - 'world'
+  - 'world_nether'
+  - 'world_the_end'
+
+temperature-unit:         # Set the default display unit for your players.
+  'CELSIUS'               # CELSIUS, FAHRENHEIT, KELVIN, RANKINE, REAUMUR, NEWTON, DELISLE, ROMER.
+
+performance: 'EXTREME'    # Set the performance impact of this plugin. LOW recommended for servers with many players.
+                          # LOW, MEDIUM, HIGH, EXTREME

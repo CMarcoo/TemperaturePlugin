@@ -1,4 +1,22 @@
-package top.cmarco.temperatureplugin.manager.data;
+/*
+ *     TemperaturePlugin - The Most Realistic Temperature Plugin Ever Created!
+ *     Copyright © 2024 CMarco
+ *
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU General Public License as published by
+ *     the Free Software Foundation, either version 3 of the License, or
+ *     (at your option) any later version.
+ *
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU General Public License for more details.
+ *
+ *     You should have received a copy of the GNU General Public License
+ *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+package top.cmarco.temperatureplugin.temperature;
 
 import org.bukkit.block.Biome;
 import top.cmarco.temperatureplugin.data.Tuple;
@@ -12,17 +30,17 @@ public class BiomeTemperatures {
 
     public static final Tuple<Double, Double> STANDARD_TEMPS = DoublesTuple.getBuilder()
             .setFirst(10.0d)
-            .setSecond(35.0d)
+            .setSecond(32.0d)
             .build();
 
     public static final Tuple<Double, Double> COLD_TEMPS = DoublesTuple.getBuilder()
-            .setFirst(-20.0)
-            .setSecond(10.00d)
+            .setFirst(-40.0d)
+            .setSecond(7.50d)
             .build();
 
     public static final Tuple<Double, Double> WARM_TEMPS = DoublesTuple.getBuilder()
             .setFirst(25.0d)
-            .setSecond(46.5d)
+            .setSecond(41.5d)
             .build();
 
     public static final Tuple<Double, Double> OCEAN_TEMPS = DoublesTuple.getBuilder()
@@ -69,7 +87,7 @@ public class BiomeTemperatures {
         BIOME_TEMPS.put(Biome.WINDSWEPT_FOREST, STANDARD_TEMPS);  
         BIOME_TEMPS.put(Biome.SAVANNA, WARM_TEMPS);
         BIOME_TEMPS.put(Biome.SAVANNA_PLATEAU, WARM_TEMPS);
-        BIOME_TEMPS.put(Biome.BADLANDS, STANDARD_TEMPS);  
+        BIOME_TEMPS.put(Biome.BADLANDS, WARM_TEMPS);
         BIOME_TEMPS.put(Biome.WOODED_BADLANDS, WARM_TEMPS);
         BIOME_TEMPS.put(Biome.SMALL_END_ISLANDS, STANDARD_TEMPS);  
         BIOME_TEMPS.put(Biome.END_MIDLANDS, STANDARD_TEMPS);  
@@ -89,7 +107,7 @@ public class BiomeTemperatures {
         BIOME_TEMPS.put(Biome.OLD_GROWTH_BIRCH_FOREST, STANDARD_TEMPS);  
         BIOME_TEMPS.put(Biome.OLD_GROWTH_SPRUCE_TAIGA, STANDARD_TEMPS);  
         BIOME_TEMPS.put(Biome.WINDSWEPT_SAVANNA, STANDARD_TEMPS);  
-        BIOME_TEMPS.put(Biome.ERODED_BADLANDS, STANDARD_TEMPS);  
+        BIOME_TEMPS.put(Biome.ERODED_BADLANDS, WARM_TEMPS);
         BIOME_TEMPS.put(Biome.BAMBOO_JUNGLE, WARM_TEMPS);
         BIOME_TEMPS.put(Biome.SOUL_SAND_VALLEY, STANDARD_TEMPS);
         BIOME_TEMPS.put(Biome.CRIMSON_FOREST, NETHER_TEMPS);
