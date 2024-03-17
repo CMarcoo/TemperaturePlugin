@@ -50,4 +50,19 @@ public final class StandardConfig {
     public Performance getPerformance() {
         return Performance.valueOf(this.config.getString("performance", "MEDIUM"));
     }
+
+    @NotNull
+    public String getActionBarFormat() {
+        return this.config.getString("format.action-bar");
+    }
+
+    @NotNull
+    public String getBarProgressReached() {
+        return this.config.getString("format.bar-progress.reached");
+    }
+
+    @NotNull
+    public String getBarProgressUnreached() {
+        return this.config.getString("format.bar-progress.unreached");
+    }
 }

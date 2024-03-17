@@ -31,7 +31,7 @@ import java.util.*;
 
 public final class WorldManager {
 
-    private final Plugin plugin;
+    private final TemperaturePlugin plugin;
     private final HashSet<World> worlds = new HashSet<>(0x03);
     private final HashMap<UUID, Season> worldsSeasons = new HashMap<>(0x03);
     private long lastChecked = 0L;
@@ -70,5 +70,9 @@ public final class WorldManager {
 
         this.worldsSeasons.put(world.getUID(), $new);
         this.lastChecked = System.currentTimeMillis();
+    }
+
+    public TemperaturePlugin getPlugin() {
+        return plugin;
     }
 }

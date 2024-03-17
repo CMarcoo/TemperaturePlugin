@@ -6,13 +6,19 @@
 #                    |_|
 # © CMarco 2024
 #
-worlds:
+worlds:                   # Worlds we should enable the temperature within.
   - 'world'
   - 'world_nether'
   - 'world_the_end'
 
-temperature-unit:         # Set the default display unit for your players.
-  'CELSIUS'               # CELSIUS, FAHRENHEIT, KELVIN, RANKINE, REAUMUR, NEWTON, DELISLE, ROMER.
+temperature-unit: 'CELSIUS'         # Set the default display unit for your players.
+                                    # CELSIUS, FAHRENHEIT, KELVIN, RANKINE, REAUMUR, NEWTON, DELISLE, ROMER.
 
-performance: 'EXTREME'    # Set the performance impact of this plugin. LOW recommended for servers with many players.
-                          # LOW, MEDIUM, HIGH, EXTREME
+performance: 'MEDIUM'               # Set the performance impact of this plugin. LOW recommended for servers with many players.
+                                    # LOW, MEDIUM, HIGH, EXTREME
+
+format:
+  action-bar: "&7[{PROGRESS}&7] {TEMP} {SEASON}"
+  bar-progress:
+    reached: "\u2591"
+    unreached: "\u2591"

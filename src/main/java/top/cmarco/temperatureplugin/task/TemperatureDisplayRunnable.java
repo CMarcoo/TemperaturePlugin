@@ -23,6 +23,7 @@ import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
+import top.cmarco.temperatureplugin.config.StandardConfig;
 import top.cmarco.temperatureplugin.manager.NamespaceManager;
 import top.cmarco.temperatureplugin.manager.PlayerTemperatureManager;
 import top.cmarco.temperatureplugin.manager.WorldManager;
@@ -47,6 +48,7 @@ public final class TemperatureDisplayRunnable implements Runnable {
 
     @NotNull
     private String getFormatTemperature(@NotNull final Player player, final double temp) {
+        final StandardConfig config = this.worldManager.getPlugin().getStandardConfig();
         final Season currentSeason = worldManager.getWorldSeason(player.getWorld());
         final Temperature playerTemp = this.temperatureManager.getPlayerUnitManager().getPlayerTemperature(player);
 
@@ -54,21 +56,24 @@ public final class TemperatureDisplayRunnable implements Runnable {
         final double maxConverted = playerTemp.convertToUnit(+40.0d);
         final double step = (maxConverted - minConverted) / 10d;
 
-        final StringBuilder strBuilder = new StringBuilder("&f["); // ▓ ░
+        final StringBuilder bar = new StringBuilder(); // ▓ ░
+
         final double celsiusTemp = playerTemp.convertUnitToCelsius(temp);
+
         final char relativeTempColour = (char) (celsiusTemp < 5.0 ? 0x62 : celsiusTemp < 29.5 ? 0x65 : 0x63);
+
         for (int i = 1; i <= 10; i++) {
             if (i * step + minConverted >= temp && i != 1) {
-                strBuilder.append("&7░");
+                bar.append("&7").append(config.getBarProgressUnreached());
             } else {
-                strBuilder.append('&').append(relativeTempColour).append('░');
+                bar.append('&').append(relativeTempColour).append(config.getBarProgressReached());
             }
         }
 
-        strBuilder.append("&f] &").append(relativeTempColour);
-
-        strBuilder.append(String.format("%.1f", temp)).append(playerTemp.getName()).append(' ').append(currentSeason.getName());
-        return ChatUtils.colorStd(strBuilder.toString());
+        return ChatUtils.colorStd(config.getActionBarFormat()
+                .replace("{PROGRESS}", bar.toString())
+                .replace("{TEMP}", String.format("&%c%.1f%s", relativeTempColour, temp, playerTemp.getName()))
+                .replace("{SEASON}", currentSeason.getName()));
     }
 
 
