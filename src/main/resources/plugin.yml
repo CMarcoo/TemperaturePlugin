@@ -9,4 +9,3 @@ softdepend: ["PlaceholderAPI"]
 commands:
   temperature:
     description: 'Manage your temperature in-game.'
-
