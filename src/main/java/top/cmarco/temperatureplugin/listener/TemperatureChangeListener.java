@@ -24,7 +24,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ArmorMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.potion.PotionEffectType;
@@ -74,11 +73,12 @@ public class TemperatureChangeListener implements Listener {
                 }
 
                 final ItemMeta itemMeta = armorContent.getItemMeta();
-                if (!(itemMeta instanceof ArmorMeta armorMeta)) {
+
+                if (itemMeta == null) {
                     continue;
                 }
 
-                if (armorMeta.hasEnchant(Enchantment.PROTECTION_FIRE)) {
+                if (itemMeta.hasEnchant(Enchantment.PROTECTION_FIRE)) {
                     fireProtCount++;
                 }
             }

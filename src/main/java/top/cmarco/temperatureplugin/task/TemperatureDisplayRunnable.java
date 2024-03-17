@@ -64,9 +64,9 @@ public final class TemperatureDisplayRunnable implements Runnable {
 
         for (int i = 1; i <= 10; i++) {
             if (i * step + minConverted >= temp && i != 1) {
-                bar.append("&7").append(config.getBarProgressUnreached());
+                bar.append("&7").append((String) config.getBarProgressUnreached());
             } else {
-                bar.append('&').append(relativeTempColour).append(config.getBarProgressReached());
+                bar.append("&").append(relativeTempColour).append(config.getBarProgressReached());
             }
         }
 

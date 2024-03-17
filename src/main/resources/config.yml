@@ -20,5 +20,5 @@ performance: 'MEDIUM'               # Set the performance impact of this plugin.
 format:
   action-bar: "&7[{PROGRESS}&7] {TEMP} {SEASON}"
   bar-progress:
-    reached: "\u2591"
-    unreached: "\u2591"
+    reached: "░"
+    unreached: "░"
