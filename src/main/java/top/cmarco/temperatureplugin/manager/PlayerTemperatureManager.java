@@ -134,7 +134,7 @@ public final class PlayerTemperatureManager {
                         final double sqdDist = tempLoc.distanceSquared(playerLoc);
 
                         if (isFurnace) {
-                            Furnace furnace = (Furnace) tempBlock;
+                            Furnace furnace = (Furnace) tempBlock.getState();
                             if (furnace.getBurnTime() > (short) 0x00) {
                                 temperature += -Math.log(sqdDist+1E-3d)+3.218905d;
                             }
