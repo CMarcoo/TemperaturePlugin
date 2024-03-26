@@ -6,19 +6,59 @@
 #                    |_|
 # © CMarco 2024
 #
+
+# Section used to set the worlds to enable temperature.
+
 worlds:                   # Worlds we should enable the temperature within.
   - 'world'
   - 'world_nether'
   - 'world_the_end'
 
+# Section to set the standard temperature user on the server.
+
 temperature-unit: 'CELSIUS'         # Set the default display unit for your players.
                                     # CELSIUS, FAHRENHEIT, KELVIN, RANKINE, REAUMUR, NEWTON, DELISLE, ROMER.
+
+# Section to control the performance of this plugin.
 
 performance: 'MEDIUM'               # Set the performance impact of this plugin. LOW recommended for servers with many players.
                                     # LOW, MEDIUM, HIGH, EXTREME
 
+
+# Section to control the action bar for temperature display.
+
 format:
-  action-bar: "&7[{PROGRESS}&7] {TEMP} {SEASON}"
-  bar-progress:
-    reached: "░"
-    unreached: "░"
+  action-bar: "&7[{PROGRESS}&7] {TEMP} {SEASON}"  # The format used by the action bar.
+  bar-progress:                                   # The format of the characters.
+    reached: "░"                                  # Character for temperature reached.
+    unreached: "░"                                # Character for temperature not reached.
+
+# Section to control the temperature generation of this plugin.
+# This is an ADVANCED section, it is recommended to pay attention to what you're modifying.
+
+# Biomes and their temperature ranges
+
+biomes:
+  STANDARD_TEMPS:  # Temperate biome
+    minimum: 10.0  # Minimum temperature
+    maximum: 32.0  # Maximum temperature
+
+  COLD_TEMPS:       # Cold biome
+    minimum: -40.0  # Minimum temperature
+    maximum: 7.50   # Maximum temperature
+
+  WARM_TEMPS:       # Warm biome
+    minimum: 25.0   # Minimum temperature
+    maximum: 41.5   # Maximum temperature
+
+  OCEAN_TEMPS:     # Ocean biome
+    minimum: 0.5   # Minimum temperature
+    maximum: 17.5  # Maximum temperature
+
+  COLD_OCEAN_TEMPS: # Cold ocean biome
+    minimum: -2.0  # Minimum temperature
+    maximum: 8.0   # Maximum temperature
+
+  NETHER_TEMPS:    # Nether biome
+    minimum: 30.0  # Minimum temperature
+    maximum: 50.0  # Maximum temperature

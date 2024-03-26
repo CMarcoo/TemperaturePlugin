@@ -65,4 +65,52 @@ public final class StandardConfig {
     public String getBarProgressUnreached() {
         return this.config.getString("format.bar-progress.unreached");
     }
+
+    public double getStandardTempsMinimum() {
+        return this.config.getDouble("biomes.STANDARD_TEMPS.minimum");
+    }
+
+    public double getStandardTempsMaximum() {
+        return this.config.getDouble("biomes.STANDARD_TEMPS.maximum");
+    }
+
+    public double getColdTempsMinimum() {
+        return this.config.getDouble("biomes.COLD_TEMPS.minimum");
+    }
+
+    public double getColdTempsMaximum() {
+        return this.config.getDouble("biomes.COLD_TEMPS.maximum");
+    }
+
+    public double getWarmTempsMinimum() {
+        return this.config.getDouble("biomes.WARM_TEMPS.minimum");
+    }
+
+    public double getWarmTempsMaximum() {
+        return this.config.getDouble("biomes.WARM_TEMPS.maximum");
+    }
+
+    public double getOceanTempsMinimum() {
+        return this.config.getDouble("biomes.OCEAN_TEMPS.minimum");
+    }
+
+    public double getOceanTempsMaximum() {
+        return this.config.getDouble("biomes.OCEAN_TEMPS.maximum");
+    }
+
+    public double getColdOceanTempsMinimum() {
+        return this.config.getDouble("biomes.COLD_OCEAN_TEMPS.minimum");
+    }
+
+    public double getColdOceanTempsMaximum() {
+        return this.config.getDouble("biomes.COLD_OCEAN_TEMPS.maximum");
+    }
+
+    public double getNetherTempsMinimum() {
+        return this.config.getDouble("biomes.NETHER_TEMPS.minimum");
+    }
+
+    public double getNetherTempsMaximum() {
+        return this.config.getDouble("biomes.NETHER_TEMPS.maximum");
+    }
 }

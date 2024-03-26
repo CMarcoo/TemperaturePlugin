@@ -49,7 +49,6 @@ public final class TemperaturePlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         this.loadConfig();
-        this.validateConfig();
         this.worldManager = new WorldManager(this);
         this.namespaceManager = new NamespaceManager(this);
         this.playerUnitManager = new PlayerUnitManager(this);
@@ -75,18 +74,6 @@ public final class TemperaturePlugin extends JavaPlugin {
 
     private void loadConfig() {
         this.standardConfig = new StandardConfig(this);
-    }
-
-    private void validateConfig() {
-        for (final String world : this.standardConfig.getWorlds()) {
-            final World tempWorld = super.getServer().getWorld(world);
-            if (tempWorld == null) {
-                super.getLogger().warning("ERROR! Invalid world with name: " + world);
-                super.getLogger().warning("This plugin will disable, Fix your config.yml !");
-                onDisable();
-                return;
-            }
-        }
     }
 
     private void assignCommand() {

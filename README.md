@@ -5,4 +5,4 @@
 ## TemperaturePlugi
 The Most Realistic Temperature Plugin Ever Created!
 <br>
-Supports Java 17 and onwards, SpigotMC 1.17.1 to 1.20.5.
+Supports Java 16 and onwards, SpigotMC 1.17.1 to 1.20.5.

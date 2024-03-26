@@ -41,7 +41,12 @@ public final class WorldManager {
         StandardConfig stdConf = plugin.getStandardConfig();
         Server server = plugin.getServer();
         for (final String worldName : stdConf.getWorlds()) {
-            worlds.add(Objects.requireNonNull(server.getWorld(worldName), "Illegal world name!"));
+            final World world = server.getWorld(worldName);
+            if (world == null) {
+                plugin.getLogger().warning("config.yml lists unknown world with name: `" + worldName + "`.");
+                continue;
+            }
+            this.worlds.add(world);
         }
     }
 

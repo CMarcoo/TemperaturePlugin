@@ -24,7 +24,7 @@ public enum Temperature {
 
     CELSIUS(v -> v, v->v, "°C"),
     FAHRENHEIT(v -> (v * 1.8d) + 32d, v -> (v-32d)/1.8d, "°F"),
-    KELVIN(v -> v + 273.15d, v->v-273.15d, "°K"),
+    KELVIN(v -> v + 273.15d, v->v-273.15d, "K"),
     RANKINE(v -> (v + 273.15d) * 1.8d, v->(v-491.67)/1.8d, "°R"),
     REAUMUR(v -> v * 0.8d, v->v/.8d, "°Re"),
     NEWTON(v -> v * 0.33d, v->(v-32)*5d/9d, "°N"),

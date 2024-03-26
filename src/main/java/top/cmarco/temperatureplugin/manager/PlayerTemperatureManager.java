@@ -42,6 +42,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class PlayerTemperatureManager {
 
     private final HashMap<UUID, Double> temperatureMap = new HashMap<>();
+    private final BiomeTemperatures biomeTemperatures;
     private final HumidityManager humidityManager;
     private final PlayerUnitManager playerUnitManager;
     private final TemperaturePlugin plugin;
@@ -50,8 +51,11 @@ public final class PlayerTemperatureManager {
 
     public PlayerTemperatureManager(@NotNull final TemperaturePlugin plugin) {
         this.plugin = plugin;
+        this.biomeTemperatures = new BiomeTemperatures(plugin.getStandardConfig());
         this.humidityManager = plugin.getHumidityManager();
         this.playerUnitManager = plugin.getPlayerUnitManager();
+
+        this.biomeTemperatures.initializeTemps();
     }
 
     public static double mapAltitudeToTemperature(double altitude, final double minHeight,
@@ -81,7 +85,12 @@ public final class PlayerTemperatureManager {
         final double blockY = block.getY();
         final double minHeight = versionAbove1_18 ? -64.0d : 0d;
         final Biome blockBiome = block.getBiome();
-        final Tuple<Double, Double> biomeTempTuple = BiomeTemperatures.BIOME_TEMPS.getOrDefault(blockBiome, BiomeTemperatures.STANDARD_TEMPS);
+        final Tuple<Double, Double> biomeTempTuple = biomeTemperatures.getBiomeLoadedTemp(blockBiome);
+
+        if (biomeTempTuple == null) {
+            throw new RuntimeException("Cannot generate temperature!\nPlayer is moving within an unknown and unregistered Biome.");
+        }
+
         final Block highestBlock = block.getWorld().getHighestBlockAt(block.getX(), block.getZ());
 
         final boolean hitBySun = highestBlock.getX() <= block.getX() && highestBlock.getZ() <= block.getZ();
